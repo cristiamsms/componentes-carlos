@@ -1,89 +1,78 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const AddProductos = () => {
-    const [inputValue, setinputValue] = useState()
-    const [inputValue2, setinputValue2] = useState('')
-    const [inputValue3, setinputValue3] = useState('')
-    const [inputValue4, setinputValue4] = useState('')
-    const [inputValue5, setinputValue5] = useState('')
-    const [inputValue6, setinputValue6] = useState('')
+    const [inputValue, setinputValue] = useState(
+        {
+            id:'',
+            referencia:'',
+            nombre:'',
+            descripcion:'',
+            detalle:'',
+            valor:'',
+
+        }
+    )
+    useEffect(() => {
+       
+    }, [])
+    const {id,referencia,nombre,descripcion,detalle,valor}=inputValue;
     
     
-    const handleInputValue=(e)=>
+    const HandleInputValue=({target})=>
     {
         
-        setinputValue(e.target.value)
+        setinputValue({...inputValue,
+            [target.name]:target.value})
         
     }
-    const handleInputValue2=(e)=>
-    {
         
-        
-        setinputValue2(e.target.value)
-    }
-    const handleInputValue3=(e)=>
-    {
-        
-        
-        setinputValue3(e.target.value)
-    }
-    const handleInputValue4=(e)=>
-    {
-        
-        
-        setinputValue4(e.target.value)
-    }
-    const handleInputValue5=(e)=>
-    {
-        
-        
-        setinputValue5(e.target.value)
-    }
-    const handleInputValue6=(e)=>
-    {
-        
-        
-        setinputValue6(e.target.value)
-    }
+    
+    
    
    
     return (
         <form >
             <input
             type="number"
-            value={inputValue}
-            onChange={ handleInputValue }
+            name="id"
+            value={id}
+            onChange={ HandleInputValue }
             placeholder="id"
             
             />
             <input
             type="text"
-            value={inputValue2}
-            onChange={ handleInputValue2 }
+            name="referencia"
+            value={referencia}
+            onChange={ handleInputValue }
             placeholder="referencia"
             />
             <input
             type="text"
-            value={inputValue3}
-            onChange={ handleInputValue3 }
+            name="nombre"
+            value={nombre}
+            onChange={ handleInputValue }
             placeholder="nombre"
             />
             <input
             type="text"
-            value={inputValue4}
-            onChange={ handleInputValue4 }
+            name="descripcion"
+            value={descripcion}
+            onChange={ handleInputValue }
             placeholder="descripcion"
             />
             <input
             type="text"
-            value={inputValue5}
-            onChange={ handleInputValue5 }
+            name="detalle"
+            value={detalle}
+            onChange={ handleInputValue }
             placeholder="detalle"
             />
             <input
             type="number"
-            value={inputValue6}
-            onChange={ handleInputValue6 }
+            name="valor"
+            value={valor}
+            onChange={ handleInputValue }
             placeholder="valor"
             />
            <select name="categorias" id="categorias">

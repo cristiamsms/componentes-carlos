@@ -1,38 +1,44 @@
 import React, { useState } from 'react'
 
 
-export const AddCategory = ({}) => {
+export const AddCategory = () => {
     
-    const [inputValue, setinputValue] = useState()
-    const [inputValue2, setinputValue2] = useState('')
+    const [inputValue, setinputValue] = useState({
+        id:'',
+        categoria:''
+
+    });
+    useEffect(() => {
+       
+    }, [])
     
-    const handleInputValue=(e)=>
+    const {id,categoria}=inputValue;
+    
+    const handleInputValue=({target})=>
     {
         
-        setinputValue(e.target.value)
+        setinputValue({...inputValue,
+            [target.name]:target.value})
         
     }
-    const handleInputValue2=(e)=>
-    {
-        
-        
-        setinputValue2(e.target.value)
-    }
+   
    
    
     return (
         <form >
             <input
             type="number"
-            value={inputValue}
+            name="id"
+            value={id}
             onChange={ handleInputValue }
             placeholder="id"
             
             />
             <input
             type="text"
-            value={inputValue2}
-            onChange={ handleInputValue2 }
+            name="categoria"
+            value={categoria}
+            onChange={ handleInputValue }
             placeholder="categoria"
             
             />
